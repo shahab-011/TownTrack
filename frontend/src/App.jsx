@@ -4,7 +4,7 @@ import remarkGfm from "remark-gfm";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
 import "./App.css";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8001";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://towntrack-api.onrender.com";
 
 // ============================================================
 // CUSTOM CURSOR COMPONENT
@@ -233,7 +233,7 @@ function ChatPage() {
         setMessages((prev) => [...prev, { role: "assistant", content: data.response || "No response received." }]);
       }
     } catch {
-      setMessages((prev) => [...prev, { role: "assistant", content: "I couldn't connect to the backend. Make sure FastAPI is running on port 8001." }]);
+      setMessages((prev) => [...prev, { role: "assistant", content: "I couldn't connect to the TownTrack API. Please check the deployed backend and CORS settings." }]);
     } finally {
       setLoading(false);
     }
