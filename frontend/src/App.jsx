@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
@@ -187,6 +187,17 @@ function ChatPage() {
   const [loading, setLoading] = useState(false);
   const [approval, setApproval] = useState(null);
   const [threadId, setThreadId] = useState(null);
+  const chatRef = useRef(null);
+
+  useEffect(() => {
+    const chat = chatRef.current;
+    if (!chat) return;
+
+    chat.scrollTo({
+      top: chat.scrollHeight,
+      behavior: "smooth",
+    });
+  }, [messages, loading]);
 
   const sendMessage = async () => {
     const message = input.trim();
@@ -283,7 +294,7 @@ function ChatPage() {
 
   return (
     <>
-      <section className="chat">
+      <section className="chat" ref={chatRef}>
         <AnimatePresence>
         {messages.map((message, index) => (
           <motion.div
