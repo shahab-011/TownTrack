@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: cityai-api
+    runtime: python
+    rootDir: .
+    buildCommand: pip install -r requirement.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: TAVILY_API_KEY
+        sync: false
+      - key: OPENWEATHER_API_KEY
+        sync: false
+      - key: BACKEND_CORS_ORIGINS
+        sync: false
+
+  - type: web
+    name: cityai-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        sync: false
