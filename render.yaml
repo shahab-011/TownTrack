@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: cityai-api
+    name: towntrack-api
     runtime: python
     rootDir: .
     buildCommand: pip install -r requirement.txt
@@ -17,7 +17,7 @@ services:
         sync: false
 
   - type: web
-    name: cityai-frontend
+    name: towntrack-frontend
     runtime: static
     rootDir: frontend
     buildCommand: npm ci && npm run build
