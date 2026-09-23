@@ -1,51 +1,21 @@
-# =========================
-# RAG Application
-# Python: 3.12 recommended
-# LLM: Groq API
-# =========================
+# FastAPI & Web Server
+fastapi
+uvicorn[standard]
+pydantic
 
-# LangChain core
+# LangChain & LangGraph
 langchain
 langchain-core
 langchain-community
-langchain-text-splitters
-langchain-classic
-
-# Groq LLM integration
 langchain-groq
+langgraph
+
+# LLM & Search API Integrations
 groq
 tavily-python
 
-# Embeddings
-langchain-huggingface
-sentence-transformers
-transformers
-torch
-
-# Vector database
-chromadb
-langchain-chroma
-
-# Document loading / PDF processing
-pypdf
-
-# Environment variables (.env)
-python-dotenv
-
-# Numerical / data utilities
-numpy
-pandas
-
-# Web API (useful for turning the RAG into an application)
-fastapi
-uvicorn[standard]
-
-# HTTP / API utilities
+# Utilities
 requests
 httpx
-
-# Optional: useful for file uploads in FastAPI
+python-dotenv
 python-multipart
-
-# Optional: Jupyter support for testing
-ipykernel
