@@ -4,7 +4,7 @@ import remarkGfm from "remark-gfm";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
 import "./App.css";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || "https://towntrack-api.onrender.com";
+const API_BASE_URL = "/api";
 
 // ============================================================
 // CUSTOM CURSOR COMPONENT
