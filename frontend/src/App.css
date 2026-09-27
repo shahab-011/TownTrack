@@ -11,6 +11,7 @@
 .app {
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   display: flex;
   overflow: hidden;
   position: relative;
@@ -409,3 +410,79 @@
 
 .learn-list { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 .learn-tag { padding: 8px 16px; border-radius: 999px; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); color: #c4b5fd; font-size: 12px; font-weight: 500; }
+
+@media (max-width: 760px) {
+  .app { flex-direction: column; }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    min-height: 64px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 16px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .logo { flex-shrink: 0; gap: 9px; padding: 0; }
+  .logo-icon { width: 36px; height: 36px; }
+  .logo-icon svg { width: 30px; height: 30px; }
+  .logo span { display: none; }
+  .sidebar > .sidebar-section:nth-child(2) { margin-left: auto; }
+  .sidebar > .sidebar-section:nth-of-type(2),
+  .sidebar-bottom,
+  .section-title { display: none; }
+  .sidebar-section { display: flex; align-items: center; gap: 6px; }
+  .nav-link { justify-content: center; gap: 6px; margin: 0; padding: 10px 12px; white-space: nowrap; }
+
+  .main { width: 100%; height: auto; min-height: 0; flex: 1; }
+  .header { min-height: 68px; height: auto; gap: 12px; padding: 12px 16px; }
+  .header h1 { font-size: 16px; }
+  .header p { max-width: 250px; font-size: 11px; }
+  .header-status { flex-shrink: 0; padding: 7px 10px; font-size: 10px; }
+  .chat { padding: 20px 16px 14px; }
+  .message-row { gap: 10px; margin-bottom: 22px; }
+  .avatar { width: 30px; height: 30px; border-radius: 9px; font-size: 12px; }
+  .user-bubble, .markdown-content { font-size: 13px; }
+  .input-area { padding: 8px 16px max(14px, env(safe-area-inset-bottom)); }
+  .input-wrapper { gap: 8px; padding: 8px 9px 8px 13px; }
+  .input-wrapper textarea { min-width: 0; }
+  .send-button { flex-shrink: 0; }
+  .approval-modal { padding: 22px; }
+  .about-container { padding: 28px 20px; }
+  .about-hero { margin-bottom: 36px; }
+  .about-hero h1 { font-size: 34px; }
+  .about-grid { grid-template-columns: minmax(0, 1fr); gap: 14px; margin-bottom: 40px; }
+  .flow-section { margin-bottom: 32px; }
+  .flow-section h2 { font-size: 20px; margin-bottom: 28px; }
+}
+
+@media (max-width: 480px) {
+  .sidebar { gap: 8px; padding: 9px 12px; }
+  .logo h2 { font-size: 15px; }
+  .nav-link { gap: 5px; padding: 9px 8px; font-size: 12px; }
+  .header p { max-width: 195px; }
+  .header-status { gap: 6px; padding: 7px 8px; }
+  .chat { padding: 16px 12px 12px; }
+  .message-row { gap: 8px; }
+  .weather-result { padding: 18px; }
+  .weather-details { gap: 8px; }
+  .weather-detail { gap: 7px; padding: 10px 8px; }
+  .approval-modal { padding: 20px 16px; }
+  .tool-argument { align-items: flex-start; flex-direction: column; gap: 6px; }
+  .about-container { padding: 24px 14px; }
+  .about-hero h1 { font-size: 30px; }
+  .flow-branches { width: 100%; flex-direction: column; gap: 12px; }
+  .flow-node { width: 100%; min-width: 0; padding: 14px 18px; }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring { display: none; }
+
+  *, *::before, *::after { cursor: auto !important; }
+  .send-button, .approval-actions button { cursor: pointer !important; }
+}

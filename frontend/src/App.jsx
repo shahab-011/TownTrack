@@ -443,7 +443,7 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            style={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh - 75px)' }}
+            style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}
           >
             {view === 'chat' ? <ChatPage /> : <AboutPage />}
           </motion.div>
